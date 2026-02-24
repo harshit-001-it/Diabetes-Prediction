@@ -1,0 +1,38 @@
+[
+  {
+    "Model":"XGBoost",
+    "Accuracy":75.32,
+    "Precision":74.97,
+    "Recall":75.32
+  },
+  {
+    "Model":"Random Forest",
+    "Accuracy":74.03,
+    "Precision":73.37,
+    "Recall":74.03
+  },
+  {
+    "Model":"MLP Classifier",
+    "Accuracy":74.03,
+    "Precision":73.64,
+    "Recall":74.03
+  },
+  {
+    "Model":"SVM (RBF)",
+    "Accuracy":74.03,
+    "Precision":73.37,
+    "Recall":74.03
+  },
+  {
+    "Model":"K-Nearest Neighbors",
+    "Accuracy":72.73,
+    "Precision":72.15,
+    "Recall":72.73
+  },
+  {
+    "Model":"Logistic Regression",
+    "Accuracy":70.78,
+    "Precision":69.89,
+    "Recall":70.78
+  }
+]

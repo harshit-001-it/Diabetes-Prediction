@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetes Prediction AI</title>
+  <meta name="description" content="AI-powered diabetes risk prediction using trained machine learning models." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- ─── ANIMATED BACKGROUND ─────────────────────────────────────────────── -->
+<div class="bg-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<div class="page-wrapper">
+
+  <!-- ─── HEADER ──────────────────────────────────────────────────────────── -->
+  <header>
+    <div class="logo">
+      <span class="logo-icon">🩺</span>
+      <span class="logo-text">DiabetesAI</span>
+    </div>
+    <p class="tagline">ML-powered risk prediction</p>
+  </header>
+
+  <!-- ─── MAIN CONTENT ────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- PREDICTION CARD -->
+    <section class="card prediction-card" id="prediction-section">
+      <h1>Diabetes Risk Assessment</h1>
+      <p class="subtitle">Enter your health metrics below for an instant AI prediction.</p>
+
+      <form id="prediction-form" novalidate>
+        <div class="form-grid">
+
+          <div class="field-group">
+            <label for="Pregnancies">Pregnancies</label>
+            <input type="number" id="Pregnancies" name="Pregnancies"
+                   placeholder="e.g. 2" min="0" max="20" step="1" required />
+          </div>
+
+          <div class="field-group">
+            <label for="Glucose">Glucose (mg/dL)</label>
+            <input type="number" id="Glucose" name="Glucose"
+                   placeholder="e.g. 120" min="0" max="400" step="1" required />
+          </div>
+
+          <div class="field-group">
+            <label for="BloodPressure">Blood Pressure (mmHg)</label>
+            <input type="number" id="BloodPressure" name="BloodPressure"
+                   placeholder="e.g. 70" min="0" max="200" step="1" required />
+          </div>
+
+          <div class="field-group">
+            <label for="SkinThickness">Skin Thickness (mm)</label>
+            <input type="number" id="SkinThickness" name="SkinThickness"
+                   placeholder="e.g. 20" min="0" max="100" step="1" required />
+          </div>
+
+          <div class="field-group">
+            <label for="Insulin">Insulin (µU/mL)</label>
+            <input type="number" id="Insulin" name="Insulin"
+                   placeholder="e.g. 80" min="0" max="900" step="1" required />
+          </div>
+
+          <div class="field-group">
+            <label for="BMI">BMI (kg/m²)</label>
+            <input type="number" id="BMI" name="BMI"
+                   placeholder="e.g. 28.5" min="0" max="70" step="0.1" required />
+          </div>
+
+          <div class="field-group">
+            <label for="DiabetesPedigreeFunction">Diabetes Pedigree</label>
+            <input type="number" id="DiabetesPedigreeFunction"
+                   name="DiabetesPedigreeFunction"
+                   placeholder="e.g. 0.47" min="0" max="3" step="0.01" required />
+          </div>
+
+          <div class="field-group">
+            <label for="Age">Age (years)</label>
+            <input type="number" id="Age" name="Age"
+                   placeholder="e.g. 33" min="1" max="120" step="1" required />
+          </div>
+
+        </div>
+
+        <button type="submit" id="predict-btn" class="btn-predict">
+          <span class="btn-text">Predict Risk</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <!-- RESULT AREA -->
+      <div id="result-area" class="result-area hidden" aria-live="polite">
+        <div id="result-card" class="result-card">
+          <div class="result-icon" id="result-icon">⚕️</div>
+          <div class="result-label" id="result-label">—</div>
+          <div class="result-prob">
+            Confidence: <strong id="result-prob">—</strong>
+          </div>
+          <div class="result-disclaimer">
+            ⚠️ This is an AI estimate — always consult a qualified physician.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODEL COMPARISON TABLE -->
+    <section class="card table-card" id="model-section">
+      <h2>🏆 Model Performance Comparison</h2>
+      <p class="subtitle">All models trained on the Pima Indians Diabetes dataset.</p>
+      <div class="table-wrapper">
+        <table id="model-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Model</th>
+              <th>Accuracy (%)</th>
+              <th>Precision (%)</th>
+              <th>Recall (%)</th>
+            </tr>
+          </thead>
+          <tbody id="model-table-body">
+            <tr><td colspan="5" class="loading-row">Loading model results…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ──────────────────────────────────────────────────────────── -->
+  <footer>
+    <p>Built with Scikit-Learn · Flask · ❤️  &nbsp;|&nbsp; <em>For educational purposes only</em></p>
+  </footer>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
